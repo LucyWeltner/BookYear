@@ -92,6 +92,10 @@ a:visited {
 	color: rgb(0, 180, 250);
 }
 
+ul > li {
+	text-indent: 75px;
+}
+
 header > img {
 	position: relative;
 	height: 350px;

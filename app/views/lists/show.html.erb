@@ -2,4 +2,7 @@
 
 <% @list.books.each_with_index do |book, index| %>
 	<p><%= index+1 %>. <%= link_to book.title, book_path(book) %> by <%= book.author.name %></p>
+	<ul>
+		<li><%= Listing.find_listing(book: book, list: @list).comments %></li>
+	</ul>
 <% end %>
