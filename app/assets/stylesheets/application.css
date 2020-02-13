@@ -101,6 +101,11 @@ ul > li {
 	text-indent: 75px;
 }
 
+ol {
+	padding-left: 50px;
+	color: rgb(150, 0, 180);
+}
+
 header > img {
 	position: relative;
 	height: 350px;

@@ -1,0 +1,7 @@
+
+<h1> Your Lists</h1>
+<ol>
+<% List.my_lists(session).each do |list| %>
+	<li><p><%= link_to(list.name, list_path(list.id)) %></p></li>
+<% end %>
+</ol>
