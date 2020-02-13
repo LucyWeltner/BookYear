@@ -55,6 +55,11 @@ div.clear {
 
 div.cover > img {
 	height: 250px;
+	padding-left: 50px;
+}
+
+div.read {
+	padding-left: 50px;
 }
 
 body {
@@ -84,7 +89,7 @@ h3 {
 p {
 	color: rgb(150, 0, 180);
 	clear: both;
-	text-indent: 50px;
+	padding-left: 50px;
 	font-size: 18px;
 }
 

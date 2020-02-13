@@ -8,7 +8,7 @@ class Book < ApplicationRecord
 	has_many :read_books
 	has_many :readers, through: :read_books, source: :user
 	def self.this_year(session)
-		self.joins(:read_books).where("date_read > ?", DateTime.now.beginning_of_year.strftime("%m/%d/%y")).where("user_id = ?", session[:user_id])
+		self.joins(:read_books).where("date_read > ?", Date.today.beginning_of_year).where("user_id = ?", session[:user_id])
 	end
 
 	def self.my_books(session)

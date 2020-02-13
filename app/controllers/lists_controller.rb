@@ -10,6 +10,7 @@ class ListsController < ApplicationController
 	# end
 	def create
 		list = List.new(ok_params)
+		list.user_id = session[:user_id]
 		if list.save
 			redirect_to list_path(list.id)
 		else 
@@ -23,9 +24,22 @@ class ListsController < ApplicationController
 	def show
 		@list = find_object(params, "list")
 	end
+	def edit
+		@list = find_object(params, "list")
+		@books = Book.my_books(session)
+	end
+	def update
+		@list = find_object(params, "list")
+		if @list.update(ok_params)
+			redirect_to list_path(@list)
+		else
+			make_errors(@list)
+			redirect_to edit_list_path
+		end
+	end
 
 	private
 	def ok_params
-		params.require(:list).permit(:name, :user_id, :book_ids =>[])
+		params.require(:list).permit(:name, :book_ids =>[])
 	end
 end

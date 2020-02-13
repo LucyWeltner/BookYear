@@ -1,6 +1,8 @@
 <%= form_with model: rb do |f| %>
 	<%= f.hidden_field :book_id, :value => book.id %>
-	<p><%= f.label "When Did You Read This Book? (Please put in the form day-month-year)" %></p>
+	<%= f.label "When Did You Read This Book?" %>
+	<br />
+	<br />
 	<%= f.date_select :date_read, :end_year => Time.now.year, :start_year => 1990 %>
 	<%= f.submit "Read Book" %>
 <% end %>

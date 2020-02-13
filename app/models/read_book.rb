@@ -1,6 +1,6 @@
 class ReadBook < ApplicationRecord
 	validates :user_id, presence: true
-	validates :book_id, presence: true
+	validates :book_id, presence: true, uniqueness: {scope: :user_id, message: "You have already read this book."}
 	validates :date_read, presence: true
 	belongs_to :user
 	belongs_to :book

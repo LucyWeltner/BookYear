@@ -2,7 +2,7 @@
 
 <h2> By <%= @book.author.name %></h2>
 <div class="cover"><% if @book.cover_image_url %>
-	<img scr= <%= @book.cover_image_url %> >
+	<img src= "<%= @book.cover_image_url %>" >
 <%end %></div>
 
 <h3>Year Published: <%= @book.year_published %>
@@ -12,7 +12,7 @@
 <!-- if statement here so this does not display if you've already read the book -->
 <% if !@read %>
 	<h3>You have not yet read this book!</h3>
-	<%= render partial: 'create_readbook', locals: {:book => @book, :rb => @rb} %>
+	<div class = "read"><%= render partial: 'create_readbook', locals: {:book => @book, :rb => @rb} %></div>
 <% else %>
 	<h3>You have read this book! Would you like to add it to a list?</h3>
 	<%= render partial: 'create_listing' %>
