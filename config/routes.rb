@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 		resources :books, only: [:index]
 	end
 	resources :lists
-	get 'lists/:id/add_books' => 'lists#add_books', as: "add_books_path"
+	# get 'lists/:id/add_books' => 'lists#add_books', as: "add_books_path"
 	get 'login' => 'sessions#new'
 	post 'login' => 'sessions#create'
 	get 'logout' => 'sessions#destroy'

@@ -3,11 +3,11 @@
 
 	<%= form_with url: '/listings', method: :post do |listing_f| %>
 		<% @books.each_with_index do |book, index| %> 
-		<p><%= listing_f.hidden_field :"list_id[#{index}]", :value => @list.id %>
-		<p><%= listing_f.label :"book_id[#{index}]", "#{book.title}" %>
-		<%= listing_f.check_box :"book_id[#{index}]", :checked_value => book.id %></p>
-		<p><%= listing_f.label :"comments[#{index}]", "Comments:" %>
-		<%= listing_f.text_area :"comments[#{index}]" %></p>
+		<p><%= listing_f.hidden_field :"listings[#{index}][list_id]", :value => @list.id %>
+		<p><%= listing_f.label :"listings[#{index}][book_id]", "#{book.title}" %>
+		<%= listing_f.check_box :"listings[#{index}][book_id]", :checked_value => book.id %></p>
+		<p><%= listing_f.label :"listings[#{index}][comments]", "Comments:" %>
+		<%= listing_f.text_area :"listings[#{index}][comments]" %></p>
 		
 	<% end %>
 	<p><%= listing_f.submit "Add Books" %></p>

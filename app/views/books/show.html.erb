@@ -19,5 +19,13 @@
 		<%= f.submit "Read Book" %>
 	<% end %>
 <% else %>
-	<h3>You have read this book!</h3>
+	<h3>You have read this book! Would you like to add it to a list?</h3>
+	<%= form_with model: Listing.new do |l_form| %>
+		<%= l_form.hidden_field :book_id, value: @book.id %>
+		<p><%= l_form.collection_select :list_id, List.my_lists(session), :id, :name, :prompt => "Select List" %></p>
+		<p><%= l_form.label :comments, "Comments:" %></p>
+		<p><%= l_form.text_area :comments %></p>
+		<%= l_form.submit "Add Book to List" %>
+	<% end %>
+
 <% end %>

@@ -1,15 +1,20 @@
+require 'pry'
 class ListsController < ApplicationController 
 	def new 
 		@list = List.new
-	end 
-	def add_books
-		@list = find_object(params, "list")
 		@books = Book.my_books(session)
-	end
+	end 
+	# def add_books
+	# 	@list = find_object(params, "list")
+	# 	@books = Book.my_books(session)
+	# end
 	def create
 		list = List.new(ok_params)
 		if list.save
-			redirect_to add_books_path(list)
+			redirect_to list_path(list.id)
+		else 
+			make_errors(list)
+			redirect_to new_list_path
 		end
 	end
 	def index
@@ -21,6 +26,6 @@ class ListsController < ApplicationController
 
 	private
 	def ok_params
-		params.require(:list).permit(:name, :user_id)
+		params.require(:list).permit(:name, :user_id, :book_ids =>[])
 	end
 end

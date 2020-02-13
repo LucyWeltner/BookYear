@@ -1,0 +1,11 @@
+<% if @author %>
+	<h1> Books by <%= @author.name %></h1>
+<% elsif @user %>
+	<h1> Books Read By <%= @user.username %></h1>
+<% end %>
+
+<% if @books %>
+	<% @books.each do |book|%>
+		<h3><%= link_to(book.title, book_path(book.id)) %> by <%= link_to(book.author.name, author_path(book.author.id)) %>
+	<% end %>
+<% end %>

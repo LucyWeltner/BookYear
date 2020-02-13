@@ -15,6 +15,10 @@ class Book < ApplicationRecord
 		self.joins(:read_books).where("user_id =?", session[:user_id]).order(:date_read)
 	end
 
+	def self.authors_books(author_id)
+		self.where(author_id: author_id)
+	end
+
 	def self.results(query)
 		title_results = self.all.select{|book| book.title.downcase.include?(query.downcase)}
 		author_results = self.joins(:author).where("name = ?", query.titleize)
