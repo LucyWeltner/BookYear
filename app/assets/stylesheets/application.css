@@ -1,0 +1,100 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+header {
+	position: relative;
+	text-align: center;
+	background-image: linear-gradient(to right, rgb(231, 255, 9), rgb(183, 10, 80));
+}
+nav#logged_in > a {
+	background: rgb(120, 0, 200);
+	padding: 15px;
+	border-right: 2px solid black;
+	color: rgb(0, 180, 200);
+	float: left;
+}
+
+nav#not_logged_in > a {
+	background: rgb(120, 0, 200);
+	padding: 15px;
+	border-right: 2px solid black;
+	color: rgb(0, 180, 200);
+	float: left;
+}
+
+div#messages {
+	color: rgb(170, 230, 0);
+	clear: all;
+}
+
+span#heading {
+	font-size: 100px;
+	position: absolute;
+	top: 55%;
+	left: 40%;
+	color: rgb(120, 0, 220);
+	font-family: "Apple Chancery";
+}
+
+div.clear {
+	clear: both;
+}
+
+div.cover > img {
+	height: 250px;
+}
+
+body {
+	background: rgb(240, 180, 90);
+}
+
+h1 {
+	color: rgb(220, 0, 190);
+	font-family: "STIXGeneral";
+	text-indent: 20%;
+	padding-top: 30px;
+}
+
+h2 {
+	color: rgb(0, 180, 250);
+	font-style: italic;
+	text-indent: 50px;
+}
+
+h3 {
+	color: rgb(0, 180, 250);
+	font-style: italic;
+	text-indent: 50px;
+	clear: both;
+}
+
+p {
+	color: rgb(150, 0, 180);
+	clear: both;
+	text-indent: 50px;
+	font-size: 18px;
+}
+
+a:visited {
+	color: rgb(0, 180, 250);
+}
+
+header > img {
+	position: relative;
+	height: 350px;
+	right: 150px;
+	opacity: 0.5;
+}

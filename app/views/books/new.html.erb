@@ -1,0 +1,18 @@
+<div class="clear"><h1>Add a New Book to BookYear's Library!</h1></div>
+
+<h4>If the book you add is a duplicate of another book that already exists on the website, it may be removed.</h4>
+
+<%= form_with model: @book do |book_f| %>
+	<b><p><%= book_f.label :title, "Title of Book:" %>
+	<%= book_f.text_field :title %></p></b>
+	<b><p><%= book_f.label :author_name, "Author's Name:" %>
+		<%= book_f.text_field :author_name %></p></b>
+	<b><p><%= book_f.label :year_published %>
+		<%= book_f.text_field :year_published %></p></b>
+	<b><p><%= book_f.label :blurb, "Copy the first one-two sentences of the book's blurb, or write your own:" %>
+		<%= book_f.text_area :blurb %></p></b>
+	<b><p><%= book_f.label :cover_image_url, "URL for cover image:" %>
+		<%= book_f.text_field :cover_image_url %></p></b>
+	<p><%= book_f.submit %></p>
+<% end %>
+

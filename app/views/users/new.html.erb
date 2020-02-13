@@ -1,0 +1,11 @@
+<h1>Sign Up</h1>
+
+<p><b><%= form_with model: @user do |f| %>
+	<%= f.label :username, "Choose Your Username:" %>
+	<%= f.text_field :username %></b></p>
+	<b><p><%= f.label :password, "Choose Your Password:" %>
+	<%= f.password_field :password %></p></b>
+	<b><p><%= f.label :password, "Password Confirmation:" %>
+	<%= f.password_field :password_confirmation %></p></b>
+	<p><%= f.submit "Sign Up" %></p>
+<% end %>

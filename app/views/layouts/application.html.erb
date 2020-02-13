@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BookYear</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header><img src="https://www-tc.pbs.org/wgbh/americanexperience/media/filer_public_thumbnails/filer_public/f8/a1/f8a10d40-596f-4ad1-8db5-fa6edf834e55/idealbookshelfcp524-wgbhamericanexperience-bannedbooks-2000web.jpg__2000x1161_q85_crop_subsampling-2_upscale.jpg"><span id="heading">BookYear</span>
+    <%= render partial: '/nav_logged_in' %></header>
+    <div id = messages>
+      <% flash.each do |key, value| %>
+        <p><%= key %>: <%= value %></p>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>

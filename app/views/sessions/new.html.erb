@@ -1,0 +1,9 @@
+<h1>Login to BookYear</h1>
+
+<b><%= form_with url: login_path, method: :post do |f| %>
+	<p><%= f.label :username, "Enter Your Username:" %></b>
+	<%= f.text_field :username %></p>
+	<b><p><%= f.label :password, "Enter Your Password:" %>
+	<%= f.password_field :password %></p></b>
+	<%= f.submit "Login" %>
+<% end %>

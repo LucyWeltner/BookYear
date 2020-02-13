@@ -1,0 +1,23 @@
+<div class="clear"><h1> <%= @book.title %> </h1></div>
+
+<h2> By <%= @book.author.name %></h2>
+<div class="cover"><% if @book.cover_image_url %>
+	<img scr= <%= @book.cover_image_url %> >
+<%end %></div>
+
+<h3>Year Published: <%= @book.year_published %>
+
+<h3> Blurb: </h3> <p><%= @book.blurb %></p>
+
+<!-- if statement here so this does not display if you've already read the book -->
+<% if !read?(@book.id) %>
+	<h3>You have not yet read this book!</h3>
+	<%= form_with model: @rb do |f| %>
+		<%= f.hidden_field :book_id, :value => @book.id %>
+		<p><%= f.label "When Did You Read This Book? (Please put in the form day-month-year)" %></p>
+		<%= f.date_select :date_read, :end_year => Time.now.year, :start_year => 1990 %>
+		<%= f.submit "Read Book" %>
+	<% end %>
+<% else %>
+	<h3>You have read this book!</h3>
+<% end %>

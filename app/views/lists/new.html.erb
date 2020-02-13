@@ -1,0 +1,8 @@
+<h1>Make a New List</h1>
+
+<%= form_with model: @list do |list_f| %>
+	<%= list_f.hidden_field :user_id, :value => session[:user_id] %>
+	<p><b><%= list_f.label :name, "Name of List:" %>
+	<%= list_f.text_field :name %></b></p>
+	<p><%= list_f.submit "Create List" %></p>
+<% end %>
