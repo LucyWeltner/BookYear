@@ -19,7 +19,6 @@ Rails.application.routes.draw do
 	get 'logout' => 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #NEED TO DO: 
-  #- edit lists - maybe use the same form as you do when you create a list but only check the boxes if those books are alredy on the list.
   #- edit your profile
   #- show and new pages for authors
   #- possibly edit pages for authors/books
