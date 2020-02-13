@@ -10,7 +10,7 @@
 <h3> Blurb: </h3> <p><%= @book.blurb %></p>
 
 <!-- if statement here so this does not display if you've already read the book -->
-<% if !read?(@book.id) %>
+<% if !@read %>
 	<h3>You have not yet read this book!</h3>
 	<%= form_with model: @rb do |f| %>
 		<%= f.hidden_field :book_id, :value => @book.id %>
@@ -20,7 +20,7 @@
 	<% end %>
 <% else %>
 	<h3>You have read this book! Would you like to add it to a list?</h3>
-	<%= form_with model: Listing.new do |l_form| %>
+	<%= form_with model: @listing do |l_form| %>
 		<%= l_form.hidden_field :book_id, value: @book.id %>
 		<p><%= l_form.collection_select :list_id, List.my_lists(session), :id, :name, :prompt => "Select List" %></p>
 		<p><%= l_form.label :comments, "Comments:" %></p>

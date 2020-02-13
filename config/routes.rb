@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 	get 'books/results' => 'books#results'
 	post '/listings' => 'listings#create'
 	resources :authors, only: [:show, :new, :create] do
-		resources :books, only: [:index, :show, :new]
+		resources :books, only: [:index, :new]
 	end 
 	resources :books, only: [:show, :new, :create]
 	post 'read_books' => 'read_books#create'
@@ -18,4 +18,10 @@ Rails.application.routes.draw do
 	post 'login' => 'sessions#create'
 	get 'logout' => 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #NEED TO DO: 
+  #- edit lists - maybe use the same form as you do when you create a list but only check the boxes if those books are alredy on the list.
+  #- edit your profile
+  #- show and new pages for authors
+  #- possibly edit pages for authors/books
+  #- move forms into partials
 end

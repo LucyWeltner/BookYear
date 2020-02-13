@@ -2,8 +2,14 @@ require 'pry'
 class BooksController < ApplicationController
 	def show
 		@book = find_object(params, "book")
-		@rb = ReadBook.new
 		if @book 
+			if !ReadBook.read?(@book.id, session)
+				@rb = ReadBook.new
+				@read = false
+			else
+				@listing = Listing.new
+				@read = true
+			end
 			render 'show'
 		else 
 			flash[:message] = "There is no book with that ID."
