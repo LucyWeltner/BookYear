@@ -1,0 +1,7 @@
+	<%= form_with model: @listing do |l_form| %>
+		<%= l_form.hidden_field :book_id, value: @book.id %>
+		<p><%= l_form.collection_select :list_id, List.my_lists(session), :id, :name, :prompt => "Select List" %></p>
+		<p><%= l_form.label :comments, "Comments:" %></p>
+		<p><%= l_form.text_area :comments %></p>
+		<%= l_form.submit "Add Book to List" %>
+	<% end %>
