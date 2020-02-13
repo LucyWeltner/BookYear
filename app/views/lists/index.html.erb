@@ -2,6 +2,7 @@
 <h1> Your Lists</h1>
 <ol>
 <% List.my_lists(session).each do |list| %>
-	<li><p><%= link_to(list.name, list_path(list.id)) %></p></li>
+	<li><span id= "list_name"><%= link_to(list.name, list_path(list.id)) %> -- <i><%= link_to "Edit This List", edit_list_path(list) %></i></span></li>
+	<br />
 <% end %>
 </ol>

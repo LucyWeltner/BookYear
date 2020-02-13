@@ -49,6 +49,12 @@ span#heading {
 	font-family: "Apple Chancery";
 }
 
+span#list_name {
+	padding-left: 10px;
+	font-size: 18px;
+	padding-top: 20px;
+}
+
 div.clear {
 	clear: both;
 }
