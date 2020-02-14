@@ -23,6 +23,7 @@ class BooksController < ApplicationController
 			@books = Book.my_books(params)
 		else 
 			flash[:alert] = "There is no author or user with that ID."
+			redirect_to homepage_path
 		end 
 	end
 	def search
@@ -44,8 +45,9 @@ class BooksController < ApplicationController
 		if book.save
 			redirect_to book_path(book)
 		else
-			make_errors(book)
-			redirect_to new_book_path
+			@book = book
+			@errors = book.errors.full_messages
+			render 'new'
 		end
 	end
 	private

@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 			session[:user_id] = user.id
 			redirect_to profile_path
 		else
+			@user = user 
 			@errors = user.errors.full_messages
 			render 'new'
 		end 

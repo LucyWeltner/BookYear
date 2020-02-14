@@ -1,7 +1,9 @@
 <h1>Sign Up</h1>
 
-<p><b><%= form_with model: @user do |f| %>
-	<%= f.label :username, "Choose Your Username:" %>
+<%= render partial: '/errors' %>
+
+<%= form_with model: @user, local: true do |f| %>
+	<p><b><%= f.label :username, "Choose Your Username:" %>
 	<%= f.text_field :username %></b></p>
 	<b><p><%= f.label :password, "Choose Your Password:" %>
 	<%= f.password_field :password %></p></b>

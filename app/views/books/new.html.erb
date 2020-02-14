@@ -1,8 +1,8 @@
 <div class="clear"><h1>Add a New Book <%= "by " + @author.name if @author %> to BookYear's Library!</h1></div>
 
-<h4>If the book you add is a duplicate of another book that already exists on the website, it may be removed.</h4>
+<%= render partial: '/errors' %>
 
-<%= form_with model: @book do |book_f| %>
+<%= form_with model: @book, local: true do |book_f| %>
 	<b><p><%= book_f.label :title, "Title of Book:" %>
 	<%= book_f.text_field :title %></p></b>
 	<% if !@author %>
@@ -11,7 +11,7 @@
 	<% else %>
 		<%= book_f.hidden_field :author_id, :value => @author.id %>
 	<% end %>
-		<b><p><%= book_f.label :year_published %>
+		<b><p><%= book_f.label :year_published, "Year Published:" %>
 		<%= book_f.text_field :year_published %></p></b>
 	<b><p><%= book_f.label :blurb, "Copy the first one-two sentences of the book's blurb, or write your own:" %>
 		<%= book_f.text_area :blurb %></p></b>

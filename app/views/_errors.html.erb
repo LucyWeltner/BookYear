@@ -1,0 +1,8 @@
+<% if @errors %>
+	<p><b><span class="errors">There <%=  @errors.length == 1 ? "was" : "were" %> <%= pluralize(@errors.length, "error") %>:</p></b></span>
+	<ol>
+		<% @errors.each do |err| %>
+			<li><%= err %></li>
+		<% end %>
+	</ol>
+<% end %>
