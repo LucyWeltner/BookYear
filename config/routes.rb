@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 	root to: 'welcome#homepage'
-	get 'books/search' => 'books#search'
+	get 'books/search' => 'books#search', as: "book_search"
 	get 'books/results' => 'books#results'
 	post '/listings' => 'listings#create'
-	resources :authors, only: [:show, :new, :create] do
+	resources :authors, only: [:show, :new, :create, :edit] do
 		resources :books, only: [:index, :new]
 	end 
 	resources :books, only: [:show, :new, :create]
@@ -23,5 +23,4 @@ Rails.application.routes.draw do
   #- edit your profile
   #- new page for authors
   #- possibly edit pages for authors/books
-  #- move forms into partials
 end

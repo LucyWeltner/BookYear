@@ -1,0 +1,10 @@
+<%= form_with model: @list do |list_f| %>
+	<p><b><%= list_f.label :name, "Name of List:" %>
+	<%= list_f.text_field :name %></b></p>
+	<%= list_f.collection_check_boxes :book_ids, @books, :id, :title do |book_f| %>
+		<p><%= book_f.check_box(checked: Listing.in_list?(book: Book.find(book_f.value), list: @list)) %>
+		<%= book_f.label %> </p>
+	<% end %>
+	<p><%= list_f.submit %></p>
+
+<% end %>

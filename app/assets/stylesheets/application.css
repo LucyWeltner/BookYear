@@ -22,7 +22,7 @@ header {
 nav#logged_in > a {
 	background: rgb(120, 0, 200);
 	padding: 15px;
-	border-right: 2px solid black;
+	border-right: 2px solid rgb(220, 0, 190);
 	color: rgb(0, 180, 200);
 	float: left;
 }
@@ -30,7 +30,7 @@ nav#logged_in > a {
 nav#not_logged_in > a {
 	background: rgb(120, 0, 200);
 	padding: 15px;
-	border-right: 2px solid black;
+	border-right: 2px solid rgb(220, 0, 190));
 	color: rgb(0, 180, 200);
 	float: left;
 }

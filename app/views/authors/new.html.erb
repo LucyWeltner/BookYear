@@ -1,0 +1,8 @@
+<h1>Create New Author</h1>
+<%= form_with model: @author, local: true do |form| %>
+	<p><b><%= form.label :name, "Name:" %>
+	<%= form.text_field :name %></b></p>
+	<p><b><%= form.label :bio, "Bio:" %>
+	<%= form.text_area :bio %><p><b>
+	<%= form.submit %>
+<% end %>

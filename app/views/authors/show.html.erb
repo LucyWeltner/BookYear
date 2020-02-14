@@ -2,4 +2,4 @@
 
 <h3> <%= link_to "See All #{@author.name}'s Books", "#{@author.id}/books" %> </h3>
 
-<p><b> <%= @author.name %>'s Bio:</b> <%= @author.bio %></p>
+<p><b> <%= @author.name %>'s Bio:</b> <%= @author.bio ? @author.bio : "No bio yet – #{link_to("edit", edit_author_path)} this author to write your own!" %></p>
