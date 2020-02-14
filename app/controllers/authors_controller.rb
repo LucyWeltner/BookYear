@@ -18,6 +18,7 @@ class AuthorsController < ApplicationController
 		@author = find_object(params, "author")
 	end
 	def update
+		@author = find_object(params, "author")
 		if @author.update(ok_params)
 			flash[:success] = "Author successfully editted."
 			redirect_to author_path(@author)

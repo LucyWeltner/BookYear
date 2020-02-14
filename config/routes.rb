@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 	get 'books/search' => 'books#search', as: "book_search"
 	get 'books/results' => 'books#results'
 	post '/listings' => 'listings#create'
-	resources :authors, only: [:show, :new, :create, :edit] do
+	resources :authors, only: [:show, :new, :create, :edit, :update] do
 		resources :books, only: [:index, :new]
 	end 
 	resources :books, only: [:show, :new, :create]
@@ -21,6 +21,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #NEED TO DO: 
   #- edit your profile
-  #- new page for authors
-  #- possibly edit pages for authors/books
+  #- possibly edit pages for books
 end
