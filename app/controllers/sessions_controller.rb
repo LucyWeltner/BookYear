@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 		end
 	end
 	def create
-		if auth['uid']
+		if auth
 			user = User.find_or_create_by(uid: auth['uid'])
 			user.username = auth['info']['name'] if !user.username
 			user.email = auth['info']['email'] if !user.email
@@ -28,7 +28,8 @@ class SessionsController < ApplicationController
 				flash[:success] = "Welcome to BookYear, #{user.username}"
 				redirect_to profile_path
 			else 
-				@errors = ["Your username or password is incorrect. Please try again."]
+				flash[:alert] = "Your username or password is incorrect. Please try again."
+				redirect_to login_path
 			end
 		end
 	end

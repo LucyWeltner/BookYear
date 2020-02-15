@@ -12,8 +12,8 @@ class BooksController < ApplicationController
 			end
 			render 'show'
 		else 
-			flash[:message] = "There is no book with that ID."
-			redirect_to books_search_path
+			flash[:error] = "There is no book with that ID."
+			redirect_to book_search_path
 		end
 	end
 	def index
@@ -32,10 +32,16 @@ class BooksController < ApplicationController
 		@results = Book.results(params[:query])
 	end
 	def new 
-		@book = Book.new
-		if params[:author_id]
-			@author = Author.find(params[:author_id])
-		end 
+		if is_logged_in?
+			@book = Book.new
+			if params[:author_id]
+				@author = Author.find(params[:author_id])
+			end 
+			render 'new'
+		else 
+			flash[:alert] = "You can only create books if you are logged in."
+			redirect_to root_path
+		end
 	end 
 	def create
 		book = Book.new(ok_params)

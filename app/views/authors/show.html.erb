@@ -2,6 +2,8 @@
 
 <h3> <%= link_to "See All #{@author.name}'s Books", "#{@author.id}/books" %> </h3>
 
-<p><b> <%= @author.name %>'s Bio:</b> <%= @author.bio ? @author.bio : "No bio yet – #{link_to("edit", edit_author_path)} this author to write your own!" %></p>
+<p><b> <%= @author.name %>'s Bio:</b> <%= @author.bio.present? ? @author.bio : "No bio yet – #{link_to('edit', edit_author_path(@author))} this author to write your own!".html_safe %></p>
 
-<span class = "link"><%= link_to "Edit Author's Bio", edit_author_path %></span>
+<% if !@author.bio.blank? %>
+	<span class = "link"><%= link_to "Edit Author's Bio", edit_author_path %></span>
+<% end %>

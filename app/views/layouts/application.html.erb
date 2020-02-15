@@ -13,7 +13,7 @@
     <%= render partial: '/nav_logged_in' %></header>
     <div id = messages>
       <% flash.each do |key, value| %>
-        <p><%= key %>: <%= value %></p>
+        <p><%= key.capitalize %>: <%= value %></p>
       <% end %>
     </div>
     <%= yield %>
