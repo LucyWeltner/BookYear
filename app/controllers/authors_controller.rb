@@ -1,6 +1,12 @@
 class AuthorsController < ApplicationController
 	def new 
-		@author = Author.new
+		if is_logged_in?
+			@author = Author.new
+			render 'new'
+		else
+			flash[:alert] = "You cannot create new authors if you are not logged in."
+			redirect_to root_path
+		end
 	end
 	def create
 		@author = Author.find_or_create_by(name: params[:author][:name])
@@ -14,7 +20,13 @@ class AuthorsController < ApplicationController
 		end
 	end
 	def edit
-		@author = find_object(params, "author")
+		if is_logged_in?
+			@author = find_object(params, "author")
+			render 'edit'
+		else
+			flash[:alert] = "You cannot edit authors if you are not logged in."
+			redirect_to root_path
+		end
 	end
 	def update
 		@author = find_object(params, "author")
