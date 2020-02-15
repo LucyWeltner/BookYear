@@ -10,10 +10,12 @@
 <h3> Blurb: </h3> <p><%= @book.blurb %></p>
 
 <!-- if statement here so this does not display if you've already read the book -->
-<% if !@read %>
-	<h3>You have not yet read this book!</h3>
-	<div class = "read"><%= render partial: 'create_readbook', locals: {:book => @book, :rb => @rb} %></div>
-<% else %>
-	<h3>You have read this book! Would you like to add it to a list?</h3>
-	<%= render partial: 'create_listing' %>
+<% if is_logged_in? %>
+	<% if !@read %>
+		<h3>You have not yet read this book!</h3>
+		<div class = "read"><%= render partial: 'create_readbook', locals: {:book => @book, :rb => @rb} %></div>
+	<% else %>
+		<h3>You have read this book! Would you like to add it to a list?</h3>
+		<%= render partial: 'create_listing' %>
+	<% end %>
 <% end %>

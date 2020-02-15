@@ -1,8 +1,14 @@
 require 'pry'
 class ListsController < ApplicationController 
 	def new 
-		@list = List.new
-		@books = Book.my_books(session)
+		if is_logged_in?
+			@list = List.new
+			@books = Book.my_books(session)
+		else
+			flash[:alert] = "Only logged in users can create lists."
+			redirect_to root_path
+		end
+
 	end 
 	# def add_books
 	# 	@list = find_object(params, "list")
