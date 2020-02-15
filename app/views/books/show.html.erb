@@ -11,6 +11,7 @@
 
 <!-- if statement here so this does not display if you've already read the book -->
 <% if is_logged_in? %>
+	<span class= "link"><%= link_to "Edit This Book", edit_book_path(@book) %></span>
 	<% if !@read %>
 		<h3>You have not yet read this book!</h3>
 		<div class = "read"><%= render partial: 'create_readbook', locals: {:book => @book, :rb => @rb} %></div>

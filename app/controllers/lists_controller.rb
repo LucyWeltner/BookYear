@@ -10,10 +10,6 @@ class ListsController < ApplicationController
 		end
 
 	end 
-	# def add_books
-	# 	@list = find_object(params, "list")
-	# 	@books = Book.my_books(session)
-	# end
 	def create
 		list = List.new(ok_params)
 		list.user_id = session[:user_id]

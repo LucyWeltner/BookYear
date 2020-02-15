@@ -56,6 +56,26 @@ class BooksController < ApplicationController
 			render 'new'
 		end
 	end
+	def edit 
+		if is_logged_in?
+			@book = find_object(params, "book")
+			render 'edit'
+		else
+			flash[:alert] = "You can only edit books if you are logged in."
+			redirect_to root_path
+		end
+	end
+	def update 
+		@book = find_object(params, "book")
+		if @book.update(ok_params)
+			flash[:success] = "#{@book.title} was successfully editted!"
+			redirect_to book_path(@book)
+		else
+			@errors = @book.errors.full_messages
+			render 'new'
+		end
+	end
+
 	private
 	def ok_params
 		params.require(:book).permit(:title, :author_id, :blurb, :year_published, :cover_image_url, :author_name)

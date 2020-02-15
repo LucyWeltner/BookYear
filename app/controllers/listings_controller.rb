@@ -8,10 +8,4 @@ class ListingsController < ApplicationController
 			redirect_to book_path(params[:book_id])
 		end
 	end
-	# def create
-	# 	raise params.inspect
-	# 	params[:listings].each_with_index do |book_info|
-	# 		Listing.create(book_info["#{index}"].permit(:list_id, :book_id, :comments))
-	# 	end
-	# end 
 end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 	resources :authors, only: [:show, :new, :create, :edit, :update] do
 		resources :books, only: [:index, :new]
 	end 
-	resources :books, only: [:show, :new, :create]
+	resources :books, only: [:show, :new, :create, :edit, :update]
 	post 'read_books' => 'read_books#create'
 	get 'profile' => 'users#current'
 	resources :users do 
