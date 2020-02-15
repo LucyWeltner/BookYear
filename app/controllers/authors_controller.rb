@@ -9,8 +9,7 @@ class AuthorsController < ApplicationController
 			flash[:success] = "Author successfully created."
 			redirect_to author_path(@author)
 		else
-			@author = author
-			@errors = author.errors.full_messages
+			@errors = @author.errors.full_messages
 			render 'new'
 		end
 	end

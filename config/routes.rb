@@ -20,6 +20,5 @@ Rails.application.routes.draw do
 	get '/auth/facebook/callback' => 'sessions#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #NEED TO DO: 
-  #- edit your profile
   #- possibly edit pages for books
 end
