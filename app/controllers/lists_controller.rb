@@ -26,7 +26,13 @@ class ListsController < ApplicationController
 	end
 	def edit
 		@list = find_object(params, "list")
-		@books = Book.my_books(session)
+		if current_user == @list.user
+			@books = Book.my_books(session)
+			render 'edit'
+		else
+			flash[:alert] = "You cannot edit a list you did not create"
+			redirect_to list_path(@list)
+		end
 	end
 	def update
 		@list = find_object(params, "list")

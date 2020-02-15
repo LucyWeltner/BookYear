@@ -10,4 +10,6 @@
 	</ul>
 <% end %>
 
-<span class="link"><%= link_to "Edit This List", edit_list_path(@list.id) %></span>
+<span class='link'><%= your_list?(@list) %></span>
+
+<!-- <span class="link"><%= link_to "Edit This List", edit_list_path(@list.id) %></span> -->
